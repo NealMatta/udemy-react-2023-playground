@@ -32,6 +32,9 @@ export default function Examples() {
 		<Section id="examples">
 			<h2>Examples</h2>
 			<Tabs
+				/* 67 - ButtonsContainer is a way to pass in HTML elements to other components
+				It's even possible to pass in custom components using curly braces to enclose the 
+				identifier */
 				buttons={
 					<>
 						<TabButton
