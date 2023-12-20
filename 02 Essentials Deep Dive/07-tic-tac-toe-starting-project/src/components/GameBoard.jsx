@@ -1,17 +1,12 @@
-const initialGameBoard = [
-	[null, null, null],
-	[null, null, null],
-	[null, null, null],
-];
+export default function GameBoard({ onSelectSquare, board }) {
+	// 88. Finding more ways to derive a single state only
+	// let gameBoard = initialGameBoard;
 
-export default function GameBoard({ onSelectSquare, turns }) {
-	let gameBoard = initialGameBoard;
-
-	// 84 - You should manage as little state as possible but rather derive values from a state
-	for (const turn of turns) {
-		const { square, player } = turn;
-		gameBoard[square.row][square.col] = player;
-	}
+	// // 84 - You should manage as little state as possible but rather derive values from a state
+	// for (const turn of turns) {
+	// 	const { square, player } = turn;
+	// 	gameBoard[square.row][square.col] = player;
+	// }
 
 	/* 82 - While this works, the data captured here needs to be referenced 
     in multiple components. So rather than have two separate states, I can life 
@@ -35,7 +30,7 @@ export default function GameBoard({ onSelectSquare, turns }) {
 
 	return (
 		<ol id="game-board">
-			{gameBoard.map((row, rowIndex) => (
+			{board.map((row, rowIndex) => (
 				<li key={rowIndex}>
 					<ol>
 						{row.map((playerSymbol, colIndex) => (
