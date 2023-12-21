@@ -5,16 +5,18 @@ import UserInput from './components/UserInput';
 import Results from './components/Results';
 
 function App() {
-	const [values, setValues] = useState({
+	// Set a high level state since both components need to be
+	// updated every time a change is made
+	const [investmentValues, setInvestmentValues] = useState({
 		initialInvestment: 10000,
 		annualInvestment: 1200,
 		expectedReturn: 6,
 		duration: 10,
 	});
 
+	// Pass a function to set the state outside of where it's used
 	function handleChange(label, newInput) {
-		setValues((prevState) => {
-			// console.log(prevState);
+		setInvestmentValues((prevState) => {
 			return { ...prevState, [label]: newInput };
 		});
 	}
@@ -22,34 +24,33 @@ function App() {
 	return (
 		<>
 			{/* Decided to remove the header from here since I didn't want it to be re-rendered */}
-			{/* <Header /> */}
 			<div id="user-input">
 				<UserInput
 					label="Initial Investment"
 					id="initialInvestment"
-					value={values.initialInvestment}
+					value={investmentValues.initialInvestment}
 					onChangeValue={handleChange}
 				/>
 				<UserInput
 					label="Annual Investment"
 					id="annualInvestment"
-					value={values.annualInvestment}
+					value={investmentValues.annualInvestment}
 					onChangeValue={handleChange}
 				/>
 				<UserInput
 					label="Expected Return"
 					id="expectedReturn"
-					value={values.expectedReturn}
+					value={investmentValues.expectedReturn}
 					onChangeValue={handleChange}
 				/>
 				<UserInput
 					label="Duration"
 					id="duration"
-					value={values.duration}
+					value={investmentValues.duration}
 					onChangeValue={handleChange}
 				/>
 			</div>
-			<Results values={values} />
+			<Results values={investmentValues} />
 		</>
 	);
 }
