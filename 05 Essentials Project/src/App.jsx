@@ -14,12 +14,14 @@ function App() {
 		duration: 10,
 	});
 
+	const inputIsValid = investmentValues.duration >= 1;
+
 	// Pass a function to set the state outside of where it's used
 	function handleChange(label, newInput) {
 		setInvestmentValues((prevState) => {
 			/* Doing this maintains the old state values and just 
 			sets the new object key/pair value */
-			return { ...prevState, [label]: newInput };
+			return { ...prevState, [label]: +newInput };
 		});
 	}
 
@@ -27,32 +29,39 @@ function App() {
 		<>
 			{/* Decided to remove the header from here since I didn't want it to be re-rendered */}
 			<div id="user-input">
-				<UserInput
-					label="Initial Investment"
-					id="initialInvestment"
-					value={investmentValues.initialInvestment}
-					onChangeValue={handleChange}
-				/>
-				<UserInput
-					label="Annual Investment"
-					id="annualInvestment"
-					value={investmentValues.annualInvestment}
-					onChangeValue={handleChange}
-				/>
-				<UserInput
-					label="Expected Return"
-					id="expectedReturn"
-					value={investmentValues.expectedReturn}
-					onChangeValue={handleChange}
-				/>
-				<UserInput
-					label="Duration"
-					id="duration"
-					value={investmentValues.duration}
-					onChangeValue={handleChange}
-				/>
+				<div className="input-group">
+					<UserInput
+						label="Initial Investment"
+						id="initialInvestment"
+						value={investmentValues.initialInvestment}
+						onChangeValue={handleChange}
+					/>
+					<UserInput
+						label="Annual Investment"
+						id="annualInvestment"
+						value={investmentValues.annualInvestment}
+						onChangeValue={handleChange}
+					/>
+				</div>
+				<div className="input-group">
+					<UserInput
+						label="Expected Return"
+						id="expectedReturn"
+						value={investmentValues.expectedReturn}
+						onChangeValue={handleChange}
+					/>
+					<UserInput
+						label="Duration"
+						id="duration"
+						value={investmentValues.duration}
+						onChangeValue={handleChange}
+					/>
+				</div>
 			</div>
-			<Results values={investmentValues} />
+			{inputIsValid && <Results values={investmentValues} />}
+			{!inputIsValid && (
+				<p className="center">Please enter a duration greater than 0</p>
+			)}
 		</>
 	);
 }

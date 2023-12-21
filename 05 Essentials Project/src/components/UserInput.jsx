@@ -3,11 +3,11 @@ import { useState } from 'react';
 export default function UserInput({ label, id, value, onChangeValue }) {
 	// const [newVal, setNewVal] = useState(value);
 	function handleChange(e) {
-		onChangeValue(id, Number(e.target.value));
+		onChangeValue(id, e.target.value);
 	}
 
 	return (
-		<div className="input-group">
+		<p>
 			<label>{label}</label>
 			<input
 				type="number"
@@ -15,6 +15,6 @@ export default function UserInput({ label, id, value, onChangeValue }) {
 				value={value}
 				onChange={handleChange}
 			/>
-		</div>
+		</p>
 	);
 }
