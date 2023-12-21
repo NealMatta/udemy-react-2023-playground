@@ -1,4 +1,9 @@
-export default function Results() {
+import { calculateInvestmentResults } from '../util/investment';
+import { formatter } from '../util/investment';
+
+export default function Results({ values }) {
+	const annualData = calculateInvestmentResults(values);
+
 	return (
 		<table id="result">
 			<thead>
@@ -11,13 +16,29 @@ export default function Results() {
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Test</td>
-					<td>Test</td>
-					<td>Test</td>
-					<td>Test</td>
-					<td>Test</td>
-				</tr>
+				{annualData &&
+					annualData.map((val) => {
+						return (
+							<tr key={val.year}>
+								<td>{val.year}</td>
+								<td>{formatter.format(val.valueEndOfYear)}</td>
+								<td>{formatter.format(val.interest)}</td>
+								<td>
+									{formatter.format(
+										val.valueEndOfYear -
+											(val.year * val.annualInvestment +
+												values.initialInvestment)
+									)}
+								</td>
+								<td>
+									{formatter.format(
+										val.year * val.annualInvestment +
+											values.initialInvestment
+									)}
+								</td>
+							</tr>
+						);
+					})}
 			</tbody>
 		</table>
 	);
