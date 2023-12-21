@@ -1,4 +1,7 @@
-export default function UserInput({ values }) {
+export default function UserInput({ values, onChangeValue }) {
+	function handleEditClick() {
+		onChangeValue;
+	}
 	return (
 		<div id="user-input">
 			<div>

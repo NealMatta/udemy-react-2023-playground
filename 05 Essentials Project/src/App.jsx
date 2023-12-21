@@ -12,11 +12,17 @@ function App() {
 		duration: 10,
 	});
 
+	function handleChange(label, newInput) {
+		setValues((prevState) => {
+			return { ...prevState, [label]: newInput };
+		});
+	}
+
 	return (
 		<>
 			{/* Decided to remove the header from here since I didn't want it to be re-rendered */}
 			{/* <Header /> */}
-			<UserInput values={values} />
+			<UserInput values={values} onChangeValue={handleChange} />
 			<Results values={values} />
 		</>
 	);
