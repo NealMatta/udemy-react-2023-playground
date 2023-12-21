@@ -1,41 +1,20 @@
-export default function UserInput({ values, onChangeValue }) {
-	function handleEditClick() {
-		onChangeValue;
+import { useState } from 'react';
+
+export default function UserInput({ label, id, value, onChangeValue }) {
+	// const [newVal, setNewVal] = useState(value);
+	function handleChange(e) {
+		onChangeValue(id, Number(e.target.value));
 	}
+
 	return (
-		<div id="user-input">
-			<div>
-				<label>Initial Investment</label>
-				<input
-					type="number"
-					id="initialInvestment"
-					defaultValue={values.initialInvestment}
-				/>
-			</div>
-			<div>
-				<label>Annual Investment</label>
-				<input
-					type="number"
-					id="annualInvestment"
-					defaultValue={values.annualInvestment}
-				/>
-			</div>
-			<div>
-				<label>Expected Return</label>
-				<input
-					type="number"
-					id="expectedReturn"
-					defaultValue={values.expectedReturn}
-				/>
-			</div>
-			<div>
-				<label>Duration</label>
-				<input
-					type="number"
-					id="duration"
-					defaultValue={values.duration}
-				/>
-			</div>
+		<div className="input-group">
+			<label>{label}</label>
+			<input
+				type="number"
+				id={id}
+				value={value}
+				onChange={handleChange}
+			/>
 		</div>
 	);
 }
