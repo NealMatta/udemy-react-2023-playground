@@ -17,6 +17,8 @@ function App() {
 	// Pass a function to set the state outside of where it's used
 	function handleChange(label, newInput) {
 		setInvestmentValues((prevState) => {
+			/* Doing this maintains the old state values and just 
+			sets the new object key/pair value */
 			return { ...prevState, [label]: newInput };
 		});
 	}
