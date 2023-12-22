@@ -1,11 +1,16 @@
 import logo from '../assets/logo.png';
+import classes from './Header.module.css';
+// Once you import a module class, you'd need to reference it
+// via the import value
 
 export default function Header() {
-  return (
-    <header>
-      <img src={logo} alt="A canvas" />
-      <h1>ReactArt</h1>
-      <p>A community of artists and art-lovers.</p>
-    </header>
-  );
+	return (
+		<header>
+			<img src={logo} alt="A canvas" />
+			<h1>ReactArt</h1>
+			<p className={classes.para}>
+				A community of artists and art-lovers.
+			</p>
+		</header>
+	);
 }
