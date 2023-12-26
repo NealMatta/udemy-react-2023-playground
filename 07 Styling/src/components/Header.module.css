@@ -1,3 +1,6 @@
+/* 111 - Modules compartmentalize the css files so that you'd only access
+these classes where they're imported  */
+
 header {
     display: flex;
     flex-direction: column;
