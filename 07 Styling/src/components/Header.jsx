@@ -12,6 +12,7 @@ const StyledHeader = styled.header`
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 
+	// Use the Ampersand to nest styled components
 	& img {
 		object-fit: contain;
 		margin-bottom: 2rem;
