@@ -1,29 +1,20 @@
 import { useState, useRef } from 'react';
 
 export default function Player() {
-	// const inputPlayerName = useRef();
+	const playerName = useRef();
 
-	const [playerName, setPlayerName] = useState('');
-	const [submitted, setSubmitted] = useState(false);
-
-	function handleChange(e) {
-		setPlayerName(e.target.value);
-	}
+	const [enteredPlayerName, setEnteredPlayerName] = useState(null);
 
 	function handleClick() {
-		setSubmitted(true);
+		setEnteredPlayerName(playerName.current.value);
 	}
 
 	return (
 		<section id="player">
-			<h2>Welcome {submitted ? playerName : 'unknown entity'}</h2>
+			{/* Ternary expression where if the first value is truthy, then that value is assigned */}
+			<h2>Welcome {enteredPlayerName ?? 'unknown entity'}</h2>
 			<p>
-				<input
-					ref={playerName}
-					type="text"
-					onChange={handleChange}
-					value={playerName}
-				/>
+				<input ref={playerName} type="text" />
 				<button onClick={handleClick}>Set Name</button>
 			</p>
 		</section>
