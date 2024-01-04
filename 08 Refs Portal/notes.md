@@ -31,3 +31,7 @@ How can it be used for input values
 
 -   useImperativeHandle Allows you to turn that ref into a sort of class. In an animal class you can have information like type of animal or genealogy. But you can also have functions like speak. useImperativeHandle Helps you handle those kinds of callable components
     -   For example, in a dialog modal that needs to Open and close, You would rather not rely on the reference in the parent component, but would rather rely on the function, explicitly defined in the child component itself
+
+## 155 - Introducing & Understanding "Portals"
+
+-   Portals, in a sense, can be used to teleport the code into a different place in the dom
