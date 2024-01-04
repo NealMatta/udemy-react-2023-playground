@@ -26,3 +26,8 @@ How can it be used for input values
 
 -   This is done by importing forwardRef from React and using it on the custom component
 -   Forwarding Refs is useful when your input is a custom component and you can pass the ref from the parent component to the child (custom) component
+
+## 150 - Exposing Component APIs via the useImperativeHandle Hook
+
+-   useImperativeHandle Allows you to turn that ref into a sort of class. In an animal class you can have information like Type of animal or genealogy. But you can also have functions like speak. useImperativeHandle Helps you handle how the component you're using functions
+    -   For example, in a dialog modal that needs to Open and close, You would rather not rely on the reference in the parent component, but would rather rely on the function, explicitly defined in the child component itself
