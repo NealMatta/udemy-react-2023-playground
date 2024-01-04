@@ -21,3 +21,8 @@ How can it be used for input values
 
 -   Like state values, Refs aren't lost when the component is re-rendered
 -   A good use case is when you have a value that doesn't directly impact the DOM but you still need to manage it such that it is not refreshed
+
+## 149 - Forwarding Refs to Custom Components
+
+-   This is done by importing forwardRef from React and using it on the custom component
+-   Forwarding Refs is useful when your input is a custom component and you can pass the ref from the parent component to the child (custom) component
