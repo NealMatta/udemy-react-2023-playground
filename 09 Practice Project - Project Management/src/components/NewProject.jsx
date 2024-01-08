@@ -1,7 +1,7 @@
 import Input from './Input';
 import { useRef } from 'react';
 
-export default function NewProject({ handleNewProject }) {
+export default function NewProject({ handleNewProject, handleNoProject }) {
 	const title = useRef();
 	const description = useRef();
 	const dueDate = useRef();
@@ -19,6 +19,7 @@ export default function NewProject({ handleNewProject }) {
 			dueDate.current.value
 		);
 		handleCancel();
+		handleNoProject();
 	}
 
 	return (

@@ -15,6 +15,14 @@ import { useState } from 'react';
 */
 function App() {
 	const [projects, setProjects] = useState([]);
+	const [mainShow, setMainShow] = useState(0);
+
+	function handleAddProject() {
+		setMainShow(1);
+	}
+	function handleNoProject() {
+		setMainShow(0);
+	}
 
 	function handleSaveNewProject(title, description, dueDate) {
 		const newProject = {
@@ -30,14 +38,26 @@ function App() {
 			<main className="h-screen flex gap-8 pt-10">
 				{/* Side Bar */}
 				<section className="p-10 w-1/5 bg-stone-950 rounded-tr-3xl">
-					<SideBar allProjects={projects} />
+					<SideBar
+						allProjects={projects}
+						handleAddProject={handleAddProject}
+					/>
 				</section>
 
 				{/* Main Component */}
 				<div className="w-3/5 p-10">
-					<NewProject handleNewProject={handleSaveNewProject} />
-					{/* <Project /> */}
-					{/* <NoProjectSelected /> */}
+					{mainShow === 0 && (
+						<NoProjectSelected
+							handleAddProject={handleAddProject}
+						/>
+					)}
+					{mainShow === 1 && (
+						<NewProject
+							handleNewProject={handleSaveNewProject}
+							handleNoProject={handleNoProject}
+						/>
+					)}
+					{mainShow === 2 && <Project />}
 				</div>
 			</main>
 		</>
