@@ -1,4 +1,8 @@
-export default function SideBar({ allProjects, handleAddProject }) {
+export default function SideBar({
+	allProjects,
+	handleAddProject,
+	handleSelectProject,
+}) {
 	return (
 		<>
 			<h2 className="mb-8 font-bold uppercase md:text-xl text-stone-200">
@@ -13,9 +17,13 @@ export default function SideBar({ allProjects, handleAddProject }) {
 			</button>
 			{allProjects && (
 				<div className="flex flex-col gap-3 ">
-					{allProjects.map((project) => {
+					{allProjects.map((project, index) => {
 						return (
-							<button className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100">
+							<button
+								onClick={() => handleSelectProject(index)}
+								className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100"
+								key={project.title + index}
+							>
 								{project.title}
 							</button>
 						);

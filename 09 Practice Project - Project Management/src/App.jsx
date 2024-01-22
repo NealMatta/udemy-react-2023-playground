@@ -16,12 +16,32 @@ import { useState } from 'react';
 function App() {
 	const [projects, setProjects] = useState([]);
 	const [mainShow, setMainShow] = useState(0);
+	const [currentProjectIndex, setCurrentProjectIndex] = useState(-1);
 
+	function handleNoProject() {
+		setMainShow(0);
+		setCurrentProjectIndex(-1);
+	}
 	function handleAddProject() {
 		setMainShow(1);
 	}
-	function handleNoProject() {
-		setMainShow(0);
+	function handleSelectProject(selectedProjectIndex) {
+		setCurrentProjectIndex(selectedProjectIndex);
+		setMainShow(2);
+	}
+	function handleDeleteProject() {
+		handleNoProject();
+		// Got this from Stack Overflow
+		setProjects((prevProjects) => {
+			return prevProjects.filter((_, i) => i !== currentProjectIndex);
+		});
+	}
+	function handleAddTask(task) {
+		setProjects((prevProjects) => {
+			const updatedProjects = [...prevProjects];
+			updatedProjects[currentProjectIndex].tasks.push(task);
+			return updatedProjects;
+		});
 	}
 
 	function handleSaveNewProject(title, description, dueDate) {
@@ -41,6 +61,7 @@ function App() {
 					<SideBar
 						allProjects={projects}
 						handleAddProject={handleAddProject}
+						handleSelectProject={handleSelectProject}
 					/>
 				</section>
 
@@ -57,7 +78,14 @@ function App() {
 							handleNoProject={handleNoProject}
 						/>
 					)}
-					{mainShow === 2 && <Project />}
+					{/* {mainShow === 2 && <Project />} */}
+					{mainShow === 2 && (
+						<Project
+							currentProject={projects[currentProjectIndex]}
+							deleteProject={handleDeleteProject}
+							addTask={handleAddTask}
+						/>
+					)}
 				</div>
 			</main>
 		</>
