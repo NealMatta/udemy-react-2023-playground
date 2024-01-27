@@ -6,3 +6,8 @@
 
 -   It's part of but not the entire solution to prop drilling
 -   Basically, it's using the children prop in components. Take a look at the shop JSX file dor an example
+
+# 165 - Introducing the Context API
+
+-   You create a context value and then wrap that around the entire app
+    -   It can be connected to state so you wouldn't need to pass the value via prop
