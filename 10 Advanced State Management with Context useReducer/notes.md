@@ -26,3 +26,9 @@
 # 170 - What happens when Context Values Change?
 
 -   When a component That uses context changes, then the component gets re-executed. Similar to how state is used
+
+# 173 - useReducer
+
+-   Bare bones, it's a function that reduces one or more complex values to a simpler one
+-   It's primarily used when you have a lot of state to manage. Otherwise, it adds extra steps
+-   I guess use reducer is nicer in the sense that it helps me manage complex. They changes in a single place, so it becomes easier to debug the application.
