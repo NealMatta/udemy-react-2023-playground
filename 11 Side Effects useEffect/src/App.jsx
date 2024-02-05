@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 
 import Places from './components/Places.jsx';
 import { AVAILABLE_PLACES } from './data.js';
@@ -6,6 +6,10 @@ import Modal from './components/Modal.jsx';
 import DeleteConfirmation from './components/DeleteConfirmation.jsx';
 import logoImg from './assets/logo.png';
 import { sortPlacesByDistance } from './loc.js';
+
+// Since this code runs synchronously, it just needs to be placed properly in the file
+// const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
+// const storedPlaces = storedIds.map((id) => AVAILABLE_PLACES.find((place) => place.id === id));
 
 function App() {
 	const modal = useRef();
@@ -30,16 +34,21 @@ function App() {
 			const place = AVAILABLE_PLACES.find((place) => place.id === id);
 			return [place, ...prevPickedPlaces];
 		});
+
+		// Example of sideEffect not neeing to be in useEffect
+		const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
+		if (storedIds.indexOf(id) === -1) {
+			localStorage.setItem('selectedPlaces', JSON.stringify(id, ...storedIds));
+		}
 	}
 
-	function handleRemovePlace() {
-		setPickedPlaces((prevPickedPlaces) =>
-			prevPickedPlaces.filter(
-				(place) => place.id !== selectedPlace.current
-			)
-		);
+	const handleRemovePlace = useCallback(function handleRemovePlace() {
+		setPickedPlaces((prevPickedPlaces) => prevPickedPlaces.filter((place) => place.id !== selectedPlace.current));
 		modal.current.close();
-	}
+
+		const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
+		localStorage.setItem('selectedPlaces', JSON.stringify(storedIds.filter((id) => id !== selectedPlace.current)));
+	}, []);
 
 	useEffect(() => {
 		// This code is needed but doesn't directly impact what we see - AKA a side effect
@@ -57,26 +66,18 @@ function App() {
 	return (
 		<>
 			<Modal ref={modal}>
-				<DeleteConfirmation
-					onCancel={handleStopRemovePlace}
-					onConfirm={handleRemovePlace}
-				/>
+				<DeleteConfirmation onCancel={handleStopRemovePlace} onConfirm={handleRemovePlace} />
 			</Modal>
 
 			<header>
 				<img src={logoImg} alt="Stylized globe" />
 				<h1>PlacePicker</h1>
-				<p>
-					Create your personal collection of places you would like to
-					visit or you have visited.
-				</p>
+				<p>Create your personal collection of places you would like to visit or you have visited.</p>
 			</header>
 			<main>
 				<Places
 					title="I'd like to visit ..."
-					fallbackText={
-						'Select the places you would like to visit below.'
-					}
+					fallbackText={'Select the places you would like to visit below.'}
 					places={pickedPlaces}
 					onSelectPlace={handleStartRemovePlace}
 				/>
