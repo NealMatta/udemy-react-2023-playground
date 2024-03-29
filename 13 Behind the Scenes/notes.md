@@ -24,3 +24,18 @@
     -   It creates and compares virtual DOM Snapshots to find out which part of the rendered UI need to be updated
 
 # 211 - Why Keys Matter When Managing State!
+
+-   Keys allow react to clearly identify which component is which if there's a dynamic list
+
+# 213. Using Keys For Resetting Components
+
+-   If your child component relies on a state value, you can use the key parameter to reset the component on change
+
+# 214. State Scheduling & Batching
+
+-   Basically, you can't use the new state value immediately after setting it
+-   Multiple state updates get batched together and only get executed once
+
+# 215. Optimizing React with MillionJS
+
+-   Need to research but it'd be good to add
