@@ -6,6 +6,17 @@
 -   Anything you can build with functional components, you can build with class-bas components
 -   class bsaed components can't use react hooks
 
-# Remaining sections
+# 216. Adding a First Class-based component
 
--   Since I won't be using class based components, I'm just going to take notes all together
+-   `render` is the same as `return`
+-   Need to extend the Component class for each new class
+    -   This for example gives you access to props
+-   Class based components can render functional components and vice-versa
+    -   Reality, you stick to one usually
+
+# 217. Working with State & Events
+
+-   use Constructor for using state
+-   State is ALWAYS an object
+-   setState merges the state with the previous state
+-   Gotta use the `this` keyword and it just makes it chaotic af
