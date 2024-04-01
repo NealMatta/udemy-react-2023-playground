@@ -20,3 +20,10 @@
 -   State is ALWAYS an object
 -   setState merges the state with the previous state
 -   Gotta use the `this` keyword and it just makes it chaotic af
+
+# 220. The Component Lifecycle
+
+-   Since you can't include hooks, class based components have their own methodology
+    -   componentDidMount == useEffect with an empty dependency array
+    -   componentDidUpdate() == useEffect() with some dependencies
+    -   componentWillUnmount == The clean up function of useEffect
