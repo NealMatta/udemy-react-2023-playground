@@ -19,3 +19,10 @@
 -   Success responses are 200 or 300 while error response are 400 or 500
 -   Wrap code that could throw an error with try/catch
 -   **Fetching, Loading, and Error states are common states created in each component**
+
+# 238. Using Optimistic Updating
+
+-   It's essentially updating your local state before the data is pushed to your database
+-   In this case, you want to set the state back to the original. Essentially rolling back that change
+-   This is better visually for the customer so that they can see the changes that they're making
+-   You will need to add an error modal to let the customer know if their data isn't being stored
