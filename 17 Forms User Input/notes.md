@@ -20,3 +20,27 @@
 -   First approach is having a state value and handle state value for every input
 -   Second approach is having a state value that has all the input in it stored as an object and then a handle state value with an identifier to figure out which state piece to update
     -   You'd need to use the spread operator and previous values so that previous values are not overwritten
+
+# 252. Getting User Inputs via Refs
+
+-   advantage of using ref is that you'd use less code
+-   Downside is that resetting these values is a bit more difficult and if you have a ton of forms, it's a bit more difficult
+
+# 253. Getting Values via FormData & Native Browser APIs
+
+-   FormData object is built into the browser and makes it easy to handle the different values from the form
+-   All FormData should have the name prop set on the fields
+-   FormData works for a lot of the field types but not all. Specifically radio buttons don't work from what I learned in this section but there may be other values too
+
+# 254. Resetting Forms
+
+-   event.target.reset is a function you can run
+
+# 255. Validating Input on Every Keystroke via State
+
+-   Keystroke validation is only avaiable via State
+-   There's a ton of reasons why this would just be the best approach
+
+# 256. Validating Input Upon Lost Focus (Blur)
+
+-   `onBlur` is an event listener for input fields that fires when focus is lost from it
