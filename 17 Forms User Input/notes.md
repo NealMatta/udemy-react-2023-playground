@@ -38,9 +38,22 @@
 
 # 255. Validating Input on Every Keystroke via State
 
--   Keystroke validation is only avaiable via State
+-   Keystroke validation is only avaiable via States
 -   There's a ton of reasons why this would just be the best approach
 
 # 256. Validating Input Upon Lost Focus (Blur)
 
 -   `onBlur` is an event listener for input fields that fires when focus is lost from it
+
+# 257. Validating input upon form submission
+
+-   Refs means you can only validate on only form submission
+-   Adding submission based validation is always a good idea even if you're validating via keystroke
+
+# 258. Validating Input via Built-in Validation Props
+
+-   Basically there's built in validation that you can add to inputs
+
+# 260. Building & Using a Reusable Input Component
+
+-

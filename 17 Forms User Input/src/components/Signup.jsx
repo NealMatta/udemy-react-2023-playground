@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 export default function Signup() {
+	const [passwordsAreNotEqual, setPasswordsAreNotEqual] = useState(false);
+
 	function handleSubmit(e) {
 		e.preventDefault();
 		const fd = new FormData(e.target);
@@ -6,6 +10,13 @@ export default function Signup() {
 		// Gives us an object with key value pairs from all the fields
 		const data = Object.fromEntries(fd.entries());
 		data.acquisition = acquisitionChannel;
+
+		if (data.password !== data['confirm-password']) {
+			setPasswordsAreNotEqual(true);
+			return;
+		}
+		setPasswordsAreNotEqual(false);
+		console.log('Submitted data \n', data);
 
 		// Option to reset form
 		// e.target.reset();
@@ -18,18 +29,19 @@ export default function Signup() {
 
 			<div className="control">
 				<label htmlFor="email">Email</label>
-				<input id="email" type="email" name="email" />
+				<input id="email" type="email" name="email" required />
 			</div>
 
 			<div className="control-row">
 				<div className="control">
 					<label htmlFor="password">Password</label>
-					<input id="password" type="password" name="password" />
+					<input id="password" type="password" name="password" required minLength={6} />
 				</div>
 
 				<div className="control">
 					<label htmlFor="confirm-password">Confirm Password</label>
-					<input id="confirm-password" type="password" name="confirm-password" />
+					<input id="confirm-password" type="password" name="confirm-password" required />
+					<div className="control-error">{passwordsAreNotEqual && <p>Passwords must match</p>}</div>
 				</div>
 			</div>
 
@@ -38,12 +50,12 @@ export default function Signup() {
 			<div className="control-row">
 				<div className="control">
 					<label htmlFor="first-name">First Name</label>
-					<input type="text" id="first-name" name="first-name" />
+					<input type="text" id="first-name" name="first-name" required />
 				</div>
 
 				<div className="control">
 					<label htmlFor="last-name">Last Name</label>
-					<input type="text" id="last-name" name="last-name" />
+					<input type="text" id="last-name" name="last-name" required />
 				</div>
 			</div>
 
