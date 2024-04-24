@@ -54,6 +54,6 @@
 
 -   Basically there's built in validation that you can add to inputs
 
-# 260. Building & Using a Reusable Input Component
+# 262. Creating a Custom useInput Hook
 
--
+-   Need a custom hook because we're using state
