@@ -9,8 +9,25 @@ export default function Meals() {
 	if (error) {
 		return <Error title="An error occurred!" message={error.message} />;
 	}
-	console.log(fetchedData);
-	// Need to loop through this data and then export it back out
-	return;
+
+	return (
+		<div>
+			<div id="meals">
+				{isFetching && <div> Loading your Food </div>}
+				{!isFetching &&
+					fetchedData.map((meal) => {
+						return (
+							<MealItem
+								key={meal.id}
+								imgSrc={'http://localhost:3000/' + meal.image}
+								title={meal.title}
+								price={meal.price}
+								description={meal.description}
+							/>
+						);
+					})}
+			</div>
+		</div>
+	);
 	// return <MealItem />;
 }
