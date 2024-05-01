@@ -6,6 +6,7 @@ import CartModalContent from './components/CartModalContent';
 
 function App() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	// const [isFormOpen, setIsFormOpene] = useState(false);
 
 	const openModal = () => {
 		setIsModalOpen(true);

@@ -7,7 +7,9 @@ export default function Header({ openModal }) {
 				<img src={logo} alt="ReactFoodLogo" />
 				<h1 id="title">ReactFood</h1>
 			</div>
-			<button onClick={openModal}>Cart</button>
+			<button className="text-button" onClick={openModal}>
+				Cart
+			</button>
 		</header>
 	);
 }

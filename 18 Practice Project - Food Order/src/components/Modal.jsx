@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
-export default function CartModal({ isOpen, children, onClose }) {
+export default function Modal({ isOpen, children, onClose }) {
 	const dialog = useRef(null);
 
 	useEffect(() => {
@@ -15,6 +15,12 @@ export default function CartModal({ isOpen, children, onClose }) {
 	return createPortal(
 		<dialog className="modal" ref={dialog} onClose={onClose}>
 			{children}
+			<div className="modal-actions">
+				<button onClick={onClose} className="text-button">
+					Close
+				</button>
+				<button className="button">Submit Order</button>
+			</div>
 		</dialog>,
 		document.getElementById('modal')
 	);
