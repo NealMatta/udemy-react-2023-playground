@@ -3,9 +3,10 @@ import Header from './components/Header';
 import Meals from './components/Meals';
 import Modal from './components/Modal';
 import CartModalContent from './components/CartModalContent';
+import FormModalContent from './components/FormModalContent';
 
 function App() {
-	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(true);
 
 	const openModal = () => {
 		setIsModalOpen(true);
@@ -18,7 +19,7 @@ function App() {
 	return (
 		<>
 			<Modal isOpen={isModalOpen} onClose={closeModal}>
-				<CartModalContent />
+				<FormModalContent />
 			</Modal>
 			<Header openModal={openModal} />
 			<Meals />
