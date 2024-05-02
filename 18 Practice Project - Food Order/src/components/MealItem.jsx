@@ -2,7 +2,7 @@ import { MealsContext } from '../store/meals-context';
 import { useContext } from 'react';
 
 export default function MealItem({ meal }) {
-	const { cart, addItemToCart } = useContext(MealsContext);
+	const { addItemToCart } = useContext(MealsContext);
 
 	return (
 		<section className="meal-item">

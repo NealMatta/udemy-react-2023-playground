@@ -3,7 +3,8 @@ import { MealsContext } from '../store/meals-context';
 import { useContext } from 'react';
 
 export default function Header({ openModal }) {
-	const { cart } = useContext(MealsContext);
+	const { cartDetails } = useContext(MealsContext);
+	const { quantity } = cartDetails;
 
 	return (
 		<header id="main-header">
@@ -12,7 +13,7 @@ export default function Header({ openModal }) {
 				<h1 id="title">ReactFood</h1>
 			</div>
 			<button className="text-button" onClick={openModal}>
-				Cart ( {cart.length} )
+				Cart ( {quantity} )
 			</button>
 		</header>
 	);

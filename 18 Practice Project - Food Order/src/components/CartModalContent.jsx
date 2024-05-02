@@ -2,7 +2,8 @@ import { useContext } from 'react';
 import { MealsContext } from '../store/meals-context';
 
 export default function CartModalContent() {
-	const { cart } = useContext(MealsContext);
+	const { cart, cartDetails, addItemToCart, removeItemFromCart } = useContext(MealsContext);
+	const { price } = cartDetails;
 	return (
 		<section className="cart">
 			<h2>Your Cart</h2>
@@ -13,18 +14,24 @@ export default function CartModalContent() {
 							<li className="cart-item" key={meal.id}>
 								<p>
 									{/* Not so sure about quantity */}
-									{meal.name} - 1x ${meal.price}
+									{meal.name} - {meal.quantity}x ${meal.price}
 								</p>
 								<div className="cart-item-actions">
-									<button>-</button>
-									<p>5</p>
-									<button>+</button>
+									<button
+										onClick={() => {
+											removeItemFromCart(meal);
+										}}
+									>
+										-
+									</button>
+									<p>{meal.quantity}</p>
+									<button onClick={() => addItemToCart(meal)}>+</button>
 								</div>
 							</li>
 						);
 					})}
 			</ul>
-			<div className="cart-total">$100.00</div>
+			<div className="cart-total">${price.toFixed(2)}</div>
 		</section>
 	);
 }
