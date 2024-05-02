@@ -16,15 +16,7 @@ export default function Meals() {
 				{isFetching && <div> Loading your Food </div>}
 				{!isFetching &&
 					fetchedData.map((meal) => {
-						return (
-							<MealItem
-								key={meal.id}
-								imgSrc={'http://localhost:3000/' + meal.image}
-								title={meal.title}
-								price={meal.price}
-								description={meal.description}
-							/>
-						);
+						return <MealItem key={meal.id} meal={meal} />;
 					})}
 			</div>
 		</div>

@@ -4,9 +4,10 @@ import Meals from './components/Meals';
 import Modal from './components/Modal';
 import CartModalContent from './components/CartModalContent';
 import FormModalContent from './components/FormModalContent';
+import MealsProvider from './store/meals-context';
 
 function App() {
-	const [isModalOpen, setIsModalOpen] = useState(true);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const openModal = () => {
 		setIsModalOpen(true);
@@ -18,11 +19,13 @@ function App() {
 
 	return (
 		<>
-			<Modal isOpen={isModalOpen} onClose={closeModal}>
-				<FormModalContent />
-			</Modal>
-			<Header openModal={openModal} />
-			<Meals />
+			<MealsProvider>
+				<Modal isOpen={isModalOpen} onClose={closeModal}>
+					<CartModalContent />
+				</Modal>
+				<Header openModal={openModal} />
+				<Meals />
+			</MealsProvider>
 		</>
 	);
 }
