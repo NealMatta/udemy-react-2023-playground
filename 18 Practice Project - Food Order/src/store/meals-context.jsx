@@ -9,6 +9,9 @@ export const MealsContext = createContext({
 	removeItemFromCart: () => {},
 });
 
+// He used a reducer instead of state to handle the adding and removing items from cart
+// Section 270 and 271
+
 export default function MealsProvider({ children }) {
 	const [cart, setCart] = useState([]);
 	const [cartDetails, setCartDetails] = useState({ quantity: 0, price: 0 });
