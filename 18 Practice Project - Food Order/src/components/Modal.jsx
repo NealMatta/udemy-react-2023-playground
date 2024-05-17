@@ -10,6 +10,7 @@ export default function Modal({ isOpen, children, onClose, callToAction }) {
 		} else {
 			dialog.current.close();
 		}
+		// Should have used a clean up function instead
 	}, [isOpen]);
 
 	return createPortal(

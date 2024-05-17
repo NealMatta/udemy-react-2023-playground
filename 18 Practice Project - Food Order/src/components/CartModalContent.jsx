@@ -3,6 +3,7 @@ import { MealsContext } from '../store/meals-context';
 
 export default function CartModalContent() {
 	const { cart, cartDetails, addItemToCart, removeItemFromCart } = useContext(MealsContext);
+	// Can use the reduce function rather than creating a separate state
 	const { price } = cartDetails;
 	return (
 		<section className="cart">
