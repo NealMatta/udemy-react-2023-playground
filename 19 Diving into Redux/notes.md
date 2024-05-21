@@ -16,3 +16,7 @@
 -   Always receives the old state and a dispatched action
 -   It must always output a new state object
 -   Takes the given inputs and produces a new state object
+
+# 290. Providing State
+
+-   Only wrapped components will have access to Redux
