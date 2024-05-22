@@ -20,3 +20,9 @@
 # 290. Providing State
 
 -   Only wrapped components will have access to Redux
+
+# 296. How to work with Redux State Correctly
+
+-   When setting new state in the dispatch function, you need to set **all** state. Setting new state overrides the state, not just updates the value
+-   **Never** mutate the state but always override the state
+    -   Objects and arrays are references so mutating the state leads to bugs and unwanted side effects
