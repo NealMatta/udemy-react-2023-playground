@@ -29,7 +29,12 @@
 
 # 299. Redux Toolkit
 
+-   You only need to install redux toolkit, not redux as well
 -   Redux Toolkit can be used to make using Redux much much easier
     -   For example, rather than having to individually be calling out the actions, Redux Toolkit intelligently does that for us
     -   There's a ton more examples like this in the index.js slide
+-
+
+# 300. Migrating everything to Redux Toolkit
+
 -
