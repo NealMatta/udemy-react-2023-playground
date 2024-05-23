@@ -1,11 +1,10 @@
 // import { createStore } from 'redux';
 import { createSlice, configureStore } from '@reduxjs/toolkit';
-const initialState = { counter: 0, showCounter: true };
 
 // Slice of your global state
 const counterSlice = createSlice({
 	name: 'counter',
-	initialState: initialState,
+	initialState: { counter: 0, showCounter: true },
 	// Every method receives the current state
 	// Don't need to write your own if checks
 	reducers: {
@@ -25,11 +24,28 @@ const counterSlice = createSlice({
 	},
 });
 
+const authSlice = createSlice({
+	name: 'auth',
+	initialState: { isAuthenticated: false },
+	reducers: {
+		login(state) {
+			state.isAuthenticated = true;
+		},
+		logout(state) {
+			state.isAuthenticated = false;
+		},
+	},
+});
+
 const store = configureStore({
 	// Creating an object out of a reducer will make it so that you can create multiple slices and then assign them all out. A way to keep the code clean
 	// reducer: { counter: counterSlice.reducer },
-	reducer: counterSlice.reducer,
+	reducer: { counter: counterSlice.reducer, auth: authSlice.reducer },
 });
+
+export const counterActions = counterSlice.actions;
+export const authActions = authSlice.actions;
+export default store;
 
 // function counterReducer(state = initialState, action) {
 // 	if (action.type === 'increment') {
@@ -66,5 +82,3 @@ const store = configureStore({
 // store.subscribe(counterSubscriber);
 
 // store.dispatch({ type: 'increment' });
-export const counterActions = counterSlice.actions;
-export default store;
