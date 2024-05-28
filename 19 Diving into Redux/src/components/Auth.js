@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { authActions } from '../store';
+import { authActions } from '../store/auth';
 import classes from './Auth.module.css';
 
 const Auth = () => {
@@ -8,10 +8,7 @@ const Auth = () => {
 		event.preventDefault();
 		dispatch(authActions.login());
 	};
-	const logoutHandler = (event) => {
-		event.preventDefault();
-		dispatch(authActions.logout());
-	};
+
 	return (
 		<main className={classes.auth}>
 			<section>

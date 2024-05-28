@@ -1,7 +1,7 @@
 // useSelector helps us grab a part of the store
 import { useSelector, useDispatch } from 'react-redux';
 import classes from './Counter.module.css';
-import { counterActions } from '../store';
+import { counterActions } from '../store/counter';
 const Counter = () => {
 	// React Redux automatically sets up a subscription to the Redux Store so you'll always have the latest state value
 	const counter = useSelector((state) => state.counter.counter);
