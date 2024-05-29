@@ -10,3 +10,10 @@
         -   This approach would be server side code helping take over some configuration
         -   There are possibilities in Firebase too for this to happen but I need to learn about it
     -   The backend is strictly created to store data
+
+# 313. Where to put the logic
+
+-   Async code can either be run in the component or action creator
+-   Running in the component would mean having to use standard redux, not redux toolkit
+    -   Just means that it'll be super heavy and unnecessarily coded
+    -   Also means that reducers wouldn't necessarily be used
