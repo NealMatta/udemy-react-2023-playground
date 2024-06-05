@@ -17,3 +17,10 @@
 -   Running in the component would mean having to use standard redux, not redux toolkit
     -   Just means that it'll be super heavy and unnecessarily coded
     -   Also means that reducers wouldn't necessarily be used
+
+# 317. Using an Action Creator Thunk
+
+-   Thunk -> Function that delays an action until later
+    -   So in regards to redux, you want to create an action creator function that does not return the action itself but instead another functino which then eventually returns the action
+    -   Run some other code before we dispatch actual action object that we did want to create
+-
