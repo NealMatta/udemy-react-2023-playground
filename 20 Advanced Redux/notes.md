@@ -24,3 +24,7 @@
     -   So in regards to redux, you want to create an action creator function that does not return the action itself but instead another functino which then eventually returns the action
     -   Run some other code before we dispatch actual action object that we did want to create
 -
+
+# 320. Redux DevTools
+
+-   Google Chrome Browser Extension
