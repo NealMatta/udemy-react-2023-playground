@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { uiActions } from './ui-slice';
 
 const initialState = {
 	items: [],
@@ -10,6 +9,10 @@ const cartSlice = createSlice({
 	name: 'cart',
 	initialState: initialState,
 	reducers: {
+		replaceCart(state, action) {
+			state.totalQuantity = action.payload.totalQuantity;
+			state.items = action.payload.items;
+		},
 		addItemToCart(state, action) {
 			const newItem = action.payload;
 			const existingItem = state.items.find((item) => item.id === newItem.id);
@@ -41,46 +44,5 @@ const cartSlice = createSlice({
 	},
 });
 
-export function sendCartData(cart) {
-	return async (dispatch) => {
-		dispatch(
-			uiActions.showNotification({
-				status: 'pending',
-				title: 'Sending ... ',
-				message: 'Sending Cart Data!',
-			})
-		);
-
-		async function sendRequest() {
-			const response = await fetch('https://udemy-react-course-1fea8-default-rtdb.firebaseio.com/cart.json', {
-				method: 'PUT',
-				body: JSON.stringify(cart),
-			});
-
-			if (!response.ok) {
-				throw new Error('Sending Cart Data Failed');
-			}
-		}
-
-		try {
-			await sendRequest();
-			dispatch(
-				uiActions.showNotification({
-					status: 'success',
-					title: 'Success! ... ',
-					message: 'Sent Cart Data Succesfully!',
-				})
-			);
-		} catch (error) {
-			dispatch(
-				uiActions.showNotification({
-					status: 'error',
-					title: 'Error! ',
-					message: 'Error happened',
-				})
-			);
-		}
-	};
-}
 export default cartSlice;
 export const cartActions = cartSlice.actions;
