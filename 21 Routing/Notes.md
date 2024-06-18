@@ -9,3 +9,7 @@
 # 329. Layouts & Nested Routes
 
 -   Using a Root Route makes it much much easier to maintain multiple paths
+
+# 333. Defining & Using Dynamic Routes
+
+-   Typically you encode IDs like database ids so you can later grab it
