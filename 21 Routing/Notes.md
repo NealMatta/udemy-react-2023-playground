@@ -13,3 +13,7 @@
 # 333. Defining & Using Dynamic Routes
 
 -   Typically you encode IDs like database ids so you can later grab it
+
+# 334. Understanding Relative & Absolute Paths
+
+-   Relative paths append the new URL to the existing URL

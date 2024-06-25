@@ -12,7 +12,7 @@ export default function Home() {
 		<>
 			<h1>My Home</h1>
 			<p>
-				Go to the <Link to="/products"> list of products</Link>
+				Go to the <Link to="products"> list of products</Link>
 			</p>
 			<p>
 				<button onClick={navigateHandler}>navigate</button>
