@@ -6,9 +6,7 @@ export default function RootLayout() {
 	return (
 		<>
 			<EventsNavigation />
-			<main>
-				<Outlet />
-			</main>
+			<Outlet />
 		</>
 	);
 }
