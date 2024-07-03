@@ -15,7 +15,7 @@ export default EventsPage;
 // This executes in the browser, not the server
 // Loader is not a react component so it cannot use hooks
 export async function loader() {
-	const response = await fetch('http://localhost:8080/eventsasdf');
+	const response = await fetch('http://localhost:8080/events');
 
 	if (!response.ok) {
 		// throw Error('Could not fetch event');
