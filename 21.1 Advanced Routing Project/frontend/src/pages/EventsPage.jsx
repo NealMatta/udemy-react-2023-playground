@@ -18,7 +18,9 @@ export async function loader() {
 	const response = await fetch('http://localhost:8080/events');
 
 	if (!response.ok) {
-		throw Error('Could not fetch event');
+		// throw Error('Could not fetch event');
+		// Need to use response instead of error to add an error status code
+		throw new Response(JSON.stringify({ message: 'Could not fetch events' }), { status: 500 });
 	} else {
 		// const resData = await response.json();
 		// return resData.events;
