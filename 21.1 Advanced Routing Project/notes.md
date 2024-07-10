@@ -10,3 +10,7 @@
 # 348 Extracting Error Data & Throwing Responses
 
 -   Throwing an error in a loader would result in the closest Error Element executing
+
+# 357. Validating User Input & Outputting Validation Errors
+
+-   You should rely on server side validation in forms because client side validation can be turned off via the dev tools in the browser
