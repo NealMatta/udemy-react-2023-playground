@@ -14,3 +14,4 @@
 # 357. Validating User Input & Outputting Validation Errors
 
 -   You should rely on server side validation in forms because client side validation can be turned off via the dev tools in the browser
+-   Returning a response in an action gives you the option to use action data in pages
