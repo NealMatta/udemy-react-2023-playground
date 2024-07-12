@@ -15,3 +15,9 @@
 
 -   You should rely on server side validation in forms because client side validation can be turned off via the dev tools in the browser
 -   Returning a response in an action gives you the option to use action data in pages
+
+# 359. BTS Work with useFetcher()
+
+-   When you're using the Form component from react-router-dom, the action that you execute will redirect you towards that page where the action lives
+-   That's not always the use case you want to see happen. For example, you may want to subscribe to a newsletter that exists in a header but also exists on a page.
+-   That's where useFetcher comes into play
