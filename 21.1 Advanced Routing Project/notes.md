@@ -21,3 +21,9 @@
 -   When you're using the Form component from react-router-dom, the action that you execute will redirect you towards that page where the action lives
 -   That's not always the use case you want to see happen. For example, you may want to subscribe to a newsletter that exists in a header but also exists on a page.
 -   That's where useFetcher comes into play
+
+# 360. Deferring Data fetching with defer()
+
+-   The defer method is best used when the http request is showing a piece of a page and you want to show other components of the page
+-   What we're doing here could also be changed via the useNavigation hook
+-   Best used when if you have a page with multiple HTTP requests at different speeds
