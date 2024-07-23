@@ -5,6 +5,7 @@ import { useFetcher } from 'react-router-dom';
 function NewsletterSignup() {
 	// Basically trigger an action without navigating to a page where the loader/action belongs
 	const fetcher = useFetcher();
+	// State tells you whether the fetcher completed the action that was triggered
 	const { data, state } = fetcher;
 
 	useEffect(() => {
