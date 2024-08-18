@@ -5,6 +5,7 @@ import { createNewEvent } from '../../util/http.js';
 import Modal from '../UI/Modal.jsx';
 import EventForm from './EventForm.jsx';
 import ErrorBlock from '../UI/ErrorBlock.jsx';
+import { queryClient } from '../../util/http.js';
 
 export default function NewEvent() {
 	const navigate = useNavigate();
@@ -13,6 +14,11 @@ export default function NewEvent() {
 	// In comparison, useQuery automatially sends a request
 	const { mutate, isPending, isError, error } = useMutation({
 		mutationFn: createNewEvent,
+		// Executes once mutation succeeds
+		onSuccess: () => {
+			navigate('/events');
+			queryClient.invalidateQueries({ queryKey: ['events'] });
+		},
 	});
 
 	function handleSubmit(formData) {
