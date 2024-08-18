@@ -7,7 +7,9 @@ import { fetchEvents } from '../../util/http.js';
 export default function NewEventsSection() {
 	const { data, isPending, isError, error } = useQuery({
 		queryKey: ['events'],
+		// React Query by default sends some data (object) to the queryFunction
 		queryFn: fetchEvents,
+		staleTime: 5000,
 	});
 	let content;
 

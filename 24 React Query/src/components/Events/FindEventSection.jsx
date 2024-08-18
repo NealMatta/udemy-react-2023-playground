@@ -12,7 +12,7 @@ export default function FindEventSection() {
 	const { data, isPending, isError, error } = useQuery({
 		// By constructing a query key dynamically, React Query can cache and reuse different data for different keys based on the same query
 		queryKey: ['events', { search: searchTerm }],
-		queryFn: () => fetchEvents(searchTerm),
+		queryFn: ({ signal }) => fetchEvents({ signal, searchTerm }),
 	});
 
 	function handleSubmit(event) {
