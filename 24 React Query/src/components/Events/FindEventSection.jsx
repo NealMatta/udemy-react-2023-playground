@@ -9,10 +9,11 @@ export default function FindEventSection() {
 	const searchElement = useRef();
 	const [searchTerm, setSearchTerm] = useState();
 
-	const { data, isPending, isError, error } = useQuery({
+	const { data, isLoading, isError, error } = useQuery({
 		// By constructing a query key dynamically, React Query can cache and reuse different data for different keys based on the same query
 		queryKey: ['events', { search: searchTerm }],
 		queryFn: ({ signal }) => fetchEvents({ signal, searchTerm }),
+		enabled: searchTerm !== undefined,
 	});
 
 	function handleSubmit(event) {
@@ -22,7 +23,7 @@ export default function FindEventSection() {
 
 	let content = <p>Please enter a search term and to find events.</p>;
 
-	if (isPending) {
+	if (isLoading) {
 		content = <LoadingIndicator />;
 	}
 
