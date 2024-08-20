@@ -44,7 +44,7 @@ export default function EventDetails() {
 		mutationFn: deleteEvent,
 		onSuccess: () => {
 			navigate('/events');
-			queryClient.invalidateQueries({ queryKey: ['events'] });
+			queryClient.invalidateQueries({ queryKey: ['events'], refetchType: 'none' });
 		},
 	});
 
