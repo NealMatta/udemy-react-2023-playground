@@ -17,9 +17,10 @@
 -   Data is cached when using tanstack query
 -   `staleTime` after which time reacctQuery sends to get updated data if it found data in your cache
 -   `gcTime` => How long the cached data is collected
--
 
-# 393. Dynamic Query Functions & Query Keys
+# 406. Optimistic Updating
+
+-   Essentially, it's pushing an update without pushing the change to the backend. If the push to the backend fails, then the change is rolled back
 
 # Questions
 
