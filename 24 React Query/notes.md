@@ -22,6 +22,10 @@
 
 -   Essentially, it's pushing an update without pushing the change to the backend. If the push to the backend fails, then the change is rolled back
 
+# 407. React Query and React Router
+
+-   You'd want to use React Query and Loader together because the loader function will execute prior to seeing the data on the screen and make it so that the data is already fetched but then it'd store it in the cache. Storing it in the cache makes it faster for useQuery to load the data
+
 # Questions
 
 1. Why does QueryKey need an array and not just a string
