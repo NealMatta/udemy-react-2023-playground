@@ -11,3 +11,10 @@
 
 -   If you try to use the HTML anchor element, The page would be forced to refresh
 -   Using Link which comes from the next JS package helps treat the application like a single page application
+
+# 414. Pages & Layouts
+
+-   Layouts is another reserved name
+-   At least one is needed in the root file
+-   metadata is also an object that is reserved and exported out
+    -   That's where the <head> values live
