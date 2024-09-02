@@ -18,3 +18,10 @@
 -   At least one is needed in the root file
 -   metadata is also an object that is reserved and exported out
     -   That's where the <head> values live
+
+# 415. Reserved File Names, Custom Components, & how to organize a NextJS Project
+
+-   Custom components are unaffected. You can create a components folder and have it all there
+-   While you can store them in the app folder, it's probably better to store it in a separate folder
+-   Using the '@' in an import statement will make the code look for the import starting at the root folder
+    -   Ex. '@/components/header'
