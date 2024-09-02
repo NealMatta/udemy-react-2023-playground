@@ -36,3 +36,8 @@
 -   route.js => Allows you to create an API route (i.e., a page which does NOT return JSX code but instead data, e.g., in the JSON format)
 
 You also find a list with all supported filenames & detailed explanations in the official docs: https://nextjs.org/docs/app/api-reference/file-conventions
+
+# 416. Configuring Dynamic Routes & Using Route Parameters
+
+-   It's pretty common to need the routes to be dynamic. To achieve this, you'd use square brackets as folder names for Dynamic Route Syntax
+-
