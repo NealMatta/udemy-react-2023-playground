@@ -9,3 +9,5 @@
         -   Web server crawlers see the full page
 -   Client components are typically used when you need to use event handlers or client side functions like useEffect
     -   To tell Next JS that you're using client side rendering, you have to add in "use client" to the top of a page
+
+# 429. Using Client Components Efficiently
