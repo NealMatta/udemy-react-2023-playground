@@ -6,5 +6,6 @@ const db = sql('meals.db');
 export function getMeals() {
 	// All is used to fetch data
 	// Get is used for a single row
+	// throw new Error('Loading meals failed');
 	return db.prepare('SELECT * FROM meals').all();
 }
