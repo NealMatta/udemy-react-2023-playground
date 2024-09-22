@@ -9,3 +9,8 @@ export function getMeals() {
 	// throw new Error('Loading meals failed');
 	return db.prepare('SELECT * FROM meals').all();
 }
+
+export function getMeal(slug) {
+	// Do it this way to prevent against SQL attacks
+	return db.prepare('SELECT * FROM meals WHERE slug = ?').get(slug);
+}
