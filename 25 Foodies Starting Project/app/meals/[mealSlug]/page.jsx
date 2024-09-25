@@ -1,4 +1,5 @@
 import Image from 'next/image';
+// Finds the closets notFound or Error Page
 import { notFound } from 'next/navigation';
 
 import { getMeal } from '@/lib/meals';
