@@ -3,10 +3,15 @@
 import { redirect } from 'next/navigation';
 import { saveMeal } from './meals';
 
+function isInvalidText(text) {
+	return !text || text.trim() === '';
+}
+
 export async function shareMeal(formData) {
 	// Need to add this directive to execute on the server
 	'use server';
 
+	// Server side validation is much more important because client side validation can be easily changed
 	const meal = {
 		title: formData.get('title'),
 		summary: formData.get('summary'),
@@ -15,6 +20,19 @@ export async function shareMeal(formData) {
 		creator: formData.get('name'),
 		creator_email: formData.get('email'),
 	};
+
+	if (
+		isInvalidText(meal.title) ||
+		isInvalidText(meal.summary) ||
+		isInvalidText(meal.instructions) ||
+		isInvalidText(meal.creator) ||
+		isInvalidText(meal.creator_email) ||
+		!meal.creator_email.includes('@') ||
+		!meal.image ||
+		meal.image.size === 0
+	) {
+		throw new Error('Invalid input');
+	}
 
 	await saveMeal(meal);
 	redirect('/meals');
