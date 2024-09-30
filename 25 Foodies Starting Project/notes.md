@@ -10,4 +10,7 @@
 -   Client components are typically used when you need to use event handlers or client side functions like useEffect
     -   To tell Next JS that you're using client side rendering, you have to add in "use client" to the top of a page
 
-# 429. Using Client Components Efficiently
+# 450. Building for Production & understanding NextJS Caching
+
+-   When the code is consolidated to be optimized, static versions of some pages are generated. In our case, the meals page is statically generated
+-   This is an issue because as new meals are added, those updates aren't shown through
