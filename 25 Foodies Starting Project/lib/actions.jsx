@@ -2,6 +2,7 @@
 
 import { redirect } from 'next/navigation';
 import { saveMeal } from './meals';
+import { revalidatePath } from 'next/cache';
 
 function isInvalidText(text) {
 	return !text || text.trim() === '';
@@ -36,5 +37,8 @@ export async function shareMeal(prevState, formData) {
 	}
 
 	await saveMeal(meal);
+	// Tells NextJS to revalidate the cache that belongs to the path
+	// You can revalidate the nested pages by in the second argument, adding the 'layout' word
+	revalidatePath('/meals');
 	redirect('/meals');
 }
