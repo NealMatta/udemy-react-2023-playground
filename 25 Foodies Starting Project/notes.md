@@ -14,3 +14,10 @@
 
 -   When the code is consolidated to be optimized, static versions of some pages are generated. In our case, the meals page is statically generated
 -   This is an issue because as new meals are added, those updates aren't shown through
+
+# 454. Static Metadata
+
+-   NextJS is looking for exported variables called metadata
+-   In the metadata object, you can set metadata fields
+-   This lets you add more metadata so that SEO would be better
+-   Using the title value is how you set the tab name
