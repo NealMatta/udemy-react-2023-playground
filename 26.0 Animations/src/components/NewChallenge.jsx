@@ -66,7 +66,7 @@ export default function NewChallenge({ onDone }) {
 						<motion.li
 							variants={{
 								hidden: { opacity: 0, scale: 0.5 },
-								visible: { opacity: 1, scale: 1 },
+								visible: { opacity: 1, scale: [2, 0.5, 1], transition: { duration: 0.3 } },
 							}}
 							key={image.alt}
 							onClick={() => handleSelectImage(image)}
