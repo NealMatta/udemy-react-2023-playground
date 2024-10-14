@@ -6,7 +6,8 @@ function Tab({ isSelected, onSelect, badgeCaption, children }) {
 		<li>
 			<button className={isSelected ? 'selected' : undefined} onClick={onSelect}>
 				{children}
-				<Badge caption={badgeCaption}></Badge>
+				{/* Adding keys means that the component will be destroyed, recreated, and then retrigger any animations */}
+				<Badge key={badgeCaption} caption={badgeCaption}></Badge>
 			</button>
 			{/* Having a layout ID means that Framer Motion will automatically look for when 
       another element in you page has the same ID and then plays an animation to smoothly animate it */}
