@@ -17,3 +17,11 @@
 -   We also need a tool for simulating our react app / components
     -   React Testing Library is most often used
 -   Both tools are available via create react app
+
+# 542. Writing our first test
+
+-   Typically want to do 3 things when writing a test, the 3 A's
+
+1. Arrange - Set up the test. Render the compoennt you want to test
+2. Act -> Do the thing you want to test. e.g. simulate a button click
+3. Assert -> Look at the output in the browser and see if it matches the expectations
