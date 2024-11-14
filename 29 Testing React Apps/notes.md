@@ -25,3 +25,7 @@
 1. Arrange - Set up the test. Render the compoennt you want to test
 2. Act -> Do the thing you want to test. e.g. simulate a button click
 3. Assert -> Look at the output in the browser and see if it matches the expectations
+
+# 543. Writing Test Suites
+
+-
