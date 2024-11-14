@@ -29,3 +29,9 @@
 # 545. Testing Connected Components
 
 -   This renders the content of the components within the tree
+
+# 547. Working with Mocks
+
+-   You typically don't want to send HTTP requsts to servers during testing periods => Causes network traffic and maybe if your'e testing data that sends POST requests, then that'll cause more issues
+-   When you're pulling data, you're not testing code that you haven't written. e.g. don't test code that is fetching data from an API
+-
