@@ -14,3 +14,6 @@ let people: { name: string; age: number }[] = [
 	{ name: 'Neal', age: 13 },
 	{ name: 'Neal', age: 13 },
 ];
+
+// Type inference
+let course = 'React - The complete guide';
