@@ -15,16 +15,16 @@ let people: { name: string; age: number }[] = [
 	{ name: 'Neal', age: 13 },
 ];
 
-// Type inference
+// ### Type inference ###
 let course = 'React - The complete guide';
 // When you immediatelly initialize a variable, it'll automatically understand the type that needs to be set
 
-// Union Types
+// ### Union Types ###
 // When a value can be two different types
 let union: string | number = 'String Value';
 union = 123;
 
-// Type Aliases
+// ### Type Aliases ###
 // Helps reduce code duplication
 type Person = {
 	name: string;
@@ -34,7 +34,7 @@ type Person = {
 
 let morePeople: Person[];
 
-// Functions & Function Types
+// ### Functions & Function Types ###
 function add(a: number, b: number): number | string {
 	return a + b;
 }
@@ -42,4 +42,15 @@ function add(a: number, b: number): number | string {
 // If you don't return anything, the return type would be void
 function printValues(value: any) {
 	console.log(value);
+}
+
+// ### Generics ###
+
+// You need to use any but at the same time, when the value is returned, it'd return as Any as well
+// To work around this issue, that's where Generics would come into play
+
+// In short, this makes Javascript smarter
+function insertAtBeginning<T>(array: T[], value: T) {
+	const newArray = [value, ...array];
+	return newArray;
 }
