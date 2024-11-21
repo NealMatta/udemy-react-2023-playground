@@ -33,3 +33,13 @@ type Person = {
 };
 
 let morePeople: Person[];
+
+// Functions & Function Types
+function add(a: number, b: number): number | string {
+	return a + b;
+}
+
+// If you don't return anything, the return type would be void
+function printValues(value: any) {
+	console.log(value);
+}
