@@ -17,3 +17,19 @@ let people: { name: string; age: number }[] = [
 
 // Type inference
 let course = 'React - The complete guide';
+// When you immediatelly initialize a variable, it'll automatically understand the type that needs to be set
+
+// Union Types
+// When a value can be two different types
+let union: string | number = 'String Value';
+union = 123;
+
+// Type Aliases
+// Helps reduce code duplication
+type Person = {
+	name: string;
+	age: number;
+	single: boolean;
+};
+
+let morePeople: Person[];
