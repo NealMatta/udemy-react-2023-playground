@@ -1,21 +1,24 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
+
+import { TodosContext } from '../store/todos-context';
 import classes from './NewTodo.module.css';
 
-const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
-	// Need to be perscriptive about what type of data it would be connected to
-	// All HTML Values have their own type
+const NewTodo: React.FC = () => {
+	const todosCtx = useContext(TodosContext);
+
 	const todoTextInputRef = useRef<HTMLInputElement>(null);
+
 	const submitHandler = (event: React.FormEvent) => {
 		event.preventDefault();
 
-		// Question mark addition ensures that typescript can extract the value
-		const enteredText = todoTextInputRef.current?.value;
+		const enteredText = todoTextInputRef.current!.value;
 
-		if (!enteredText || enteredText.trim().length === 0) {
+		if (enteredText.trim().length === 0) {
+			// throw an error
 			return;
 		}
 
-		props.onAddTodo(enteredText);
+		todosCtx.addTodo(enteredText);
 	};
 
 	return (
