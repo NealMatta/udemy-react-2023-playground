@@ -2,13 +2,13 @@
 // It makes it so that I don't have to always import children and define the type
 
 import Todo from '../models/todo';
-import SingleTodo from './SingleTodo';
+import TodoItem from './TodoItem';
 
-const Todos: React.FC<{ items: Todo[] }> = (props) => {
+const Todos: React.FC<{ items: Todo[]; onRemoveTodo: (id: string) => void }> = (props) => {
 	return (
 		<ul>
 			{props.items.map(({ id, text }) => (
-				<SingleTodo key={id} text={text} />
+				<TodoItem key={id} text={text} onRemoveTodo={props.onRemoveTodo.bind(null, id)} />
 			))}
 		</ul>
 	);

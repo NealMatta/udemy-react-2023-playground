@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import classes from './NewTodo.module.css';
 
 const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
 	// Need to be perscriptive about what type of data it would be connected to
@@ -18,10 +19,10 @@ const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
 	};
 
 	return (
-		<form onSubmit={submitHandler}>
-			<label htmlFor="text">Todo Text</label>
+		<form onSubmit={submitHandler} className={classes.form}>
+			<label htmlFor="text">Todo text</label>
 			<input type="text" id="text" ref={todoTextInputRef} />
-			<label>Add Todo</label>
+			<button>Add Todo</button>
 		</form>
 	);
 };
